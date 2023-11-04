@@ -16,3 +16,10 @@
      - En **application.properties** deshabilitamos la vista JPA y habilitamos la consola de H2
      - En esta ruta: http://localhost:8080/h2-console/ agregamos el código de H2 que aparece al reiniciar la aplicación
      - Esta nos permitirá ver la tabla![img.png](src%2Fmain%2Fresources%2Fstatic%2Fimg.png)
+3. DAO
+   - Creamos un nuevo package **models.dao**
+     - Creamos la interface **ICliente**
+       - Agregamos los métodos a implementar
+     - Creamos la clase **ClienteDAO** que implementa los métodos de la interface **ICliente**
+     - **EntityManager** trae todos los métodos para listar, guardar, etc.
+     - Desarrollamos **listarTodo** @Transactional(readOnly=true:) nos dice que nos vamos a conectar a la DB para hacer algo de solo lectura

@@ -10,9 +10,11 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column( length = 20, name = "nombre_cliente")
+    @Column( length = 20)
     private String nombre;
+    @Column( length = 50)
     private String apellidos;
+    @Column( length = 50)
     private String email;
     @Temporal(TemporalType.DATE)
     private Date fechaCreacion;
