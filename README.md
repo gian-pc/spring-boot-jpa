@@ -10,3 +10,9 @@
      - H2 Database
      - MySQL Driver
      - Spring Data JPA
+2. Creación de modelos
+   - Creamos el package **models.entity**
+     - Creamos la clase **Cliente** con sus respectivas anotaciones(@Entity, @Table, @Id)
+     - En **application.properties** deshabilitamos la vista JPA y habilitamos la consola de H2
+     - En esta ruta: http://localhost:8080/h2-console/ agregamos el código de H2 que aparece al reiniciar la aplicación
+     - Esta nos permitirá ver la tabla![img.png](src%2Fmain%2Fresources%2Fstatic%2Fimg.png)
