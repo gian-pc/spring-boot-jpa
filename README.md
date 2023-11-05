@@ -23,3 +23,19 @@
      - Creamos la clase **ClienteDAO** que implementa los métodos de la interface **ICliente**
      - **EntityManager** trae todos los métodos para listar, guardar, etc.
      - Desarrollamos **listarTodo** @Transactional(readOnly=true:) nos dice que nos vamos a conectar a la DB para hacer algo de solo lectura
+4. Controlador
+   - Creamos un controlador para controlar las acciones
+   - Creamos el package controllers
+     - Creamos ClienteController
+     - Agregamos la anotación @Controller
+     - Inyectamos la Interface **ICliente**
+     - Convertimos en un @Repository **ClienteDAO**
+   - Creamos una Vista
+     - cliente/listar.html
+   - Datos de prueba, creamos un archivo **import.sql**
+   - Los datos de prueba se crearon porque no habíamos agregado la anotación **@PersistenceContext** por lo cual no habíamos logrado la conexión a la base de datos
+   - !Deshabilitar nombre aleatorio BD en **application.properties**
+     - spring.datasource.generate-unique-name=false
+   - !Habilitar visualización de sentencias SQL en **application.properties**
+     - spring.jpa.show-sql=true
+   

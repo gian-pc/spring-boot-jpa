@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot JPA</title>
+</head>
+<body>
+    <h1 th:text="${titulo}"></h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Fecha de Creación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cliente: ${clientes}">
+                <td th:text="${cliente.id}"></td>
+                <td th:text="${cliente.nombre}"></td>
+                <td th:text="${cliente.apellidos}"></td>
+                <td th:text="${cliente.email}"></td>
+                <td th:text="${cliente.fechaCreacion}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
