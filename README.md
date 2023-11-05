@@ -38,4 +38,10 @@
      - spring.datasource.generate-unique-name=false
    - !Habilitar visualización de sentencias SQL en **application.properties**
      - spring.jpa.show-sql=true
+5. Bootstrap y Vistas
+   - Esta vez descargamos Boostrap y lo agregamos en listar.html
+   - Agregamos una class de Boostrap
+   - Agregamos formulario.html
+   - Resultados![img_1.png](src%2Fmain%2Fresources%2Fstatic%2Fimg_1.png)![img_2.png](src%2Fmain%2Fresources%2Fstatic%2Fimg_2.png)
+   
    
