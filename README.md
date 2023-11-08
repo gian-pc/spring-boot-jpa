@@ -50,3 +50,7 @@
    - Para evitar que se envíen campos vacíos agregamos **nullable = false** en Cliente y **@NotBlank**
    - Seguidamente validamos en ClienteController
    - Después de validar en ClienteController al querer pasar campos vacíos no nos debe permitir enviar y retorna a "cliente/formulario"
+7. Mapeo de errores
+   - En formulario.html mapearemos los errores campo por campo
+   - Agregamos **messages.properties** para los mensajes personalizados
+   - Adicional en el formulario agregamos unas clases de bootstrap

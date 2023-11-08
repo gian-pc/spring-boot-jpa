@@ -28,7 +28,7 @@ public class ClienteController {
 
     @GetMapping("/formulario")
     public String formulario(Model model){
-        model.addAttribute("titulo","Formulario de Cliente");
+        model.addAttribute("titulo","Formulario de Cliente: Registrar");
         model.addAttribute("cliente", new Cliente());
         return "cliente/formulario";
     }
@@ -36,7 +36,7 @@ public class ClienteController {
     @PostMapping("/formulario")
     public String guardar(@Valid Cliente cliente, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
-            model.addAttribute("titulo", "Formulario de Cliente");
+            model.addAttribute("titulo", "Formulario de Cliente: Registrar");
             return "cliente/formulario";
         }
         iCliente.guardar(cliente);

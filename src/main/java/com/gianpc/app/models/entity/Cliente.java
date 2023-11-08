@@ -19,7 +19,7 @@ public class Cliente {
     private String apellidos;
     @NotBlank
     @Email
-    @Column( length = 30, nullable = false)
+    @Column( length = 50, nullable = false)
     private String email;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
