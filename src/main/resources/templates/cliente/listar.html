@@ -34,6 +34,7 @@
                 <th>Apellidos</th>
                 <th>Email</th>
                 <th>Fecha de Creación</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -43,9 +44,11 @@
                 <td th:text="${cliente.apellidos}"></td>
                 <td th:text="${cliente.email}"></td>
                 <td th:text="${cliente.fechaCreacion}"></td>
+                <td><a class="btn btn-success" th:href="@{/cliente/formulario/} + ${cliente.id}">Editar</a></td>
             </tr>
         </tbody>
     </table>
 </div>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.js}"></script>
 </body>
 </html>

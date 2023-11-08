@@ -21,8 +21,9 @@ public class ClienteDAO implements ICliente{
     }
 
     @Override
-    public Cliente obtenerUno() {
-        return null;
+    @Transactional(readOnly = true)
+    public Cliente obtenerUno(Integer id) {
+        return entityManager.find(Cliente.class, id);
     }
 
     @Override

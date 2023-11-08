@@ -10,7 +10,7 @@ public interface ICliente {
     public List<Cliente> listarTodo();
 
     // Listar un cliente
-    public Cliente obtenerUno();
+    public Cliente obtenerUno(Integer id);
 
     // Guardar cliente
     public void guardar(Cliente client);

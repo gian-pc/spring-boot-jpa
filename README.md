@@ -54,3 +54,6 @@
    - En formulario.html mapearemos los errores campo por campo
    - Agregamos **messages.properties** para los mensajes personalizados
    - Adicional en el formulario agregamos unas clases de bootstrap
+8. Editar un Cliente
+   - Antes agregamos **bootstrap.bundle.js** de bootstrap para que se genere la animación del menú
+   - Para editar un cliente, primero debemos obtener el cliente

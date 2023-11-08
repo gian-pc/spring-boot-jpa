@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -41,5 +42,11 @@ public class ClienteController {
         }
         iCliente.guardar(cliente);
         return "redirect:listar";
+    }
+    @GetMapping("/formulario/{id}")
+    public String obtenerUno(@PathVariable Integer id, Model model){
+        model.addAttribute("titulo", "Formulario de Cliente: Editar");
+        model.addAttribute("cliente", iCliente.obtenerUno(id));
+        return "cliente/formulario";
     }
 }
