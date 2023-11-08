@@ -1,2 +1,2 @@
-INSERT INTO cliente (id, nombre, apellidos, email, fecha_creacion) VALUES (1, 'Bill', 'Gates','bill@correo.com', '2021-12-1');
-INSERT INTO cliente (id, nombre, apellidos, email, fecha_creacion) VALUES (2, 'Steve', 'Jobs','steve@correo.com', '2021-12-2');
+INSERT INTO cliente (id, nombre, apellidos, email, fecha_creacion) VALUES (default, 'Bill', 'Gates','bill@correo.com', '2021-12-1');
+INSERT INTO cliente (id, nombre, apellidos, email, fecha_creacion) VALUES (default, 'Steve', 'Jobs','steve@correo.com', '2021-12-2');

@@ -1,23 +1,34 @@
 package com.gianpc.app.models.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "cliente")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column( length = 20)
+    @NotBlank
+    @Column( length = 30, nullable = false)
     private String nombre;
-    @Column( length = 50)
+    @NotBlank
+    @Column( length = 30, nullable = false)
     private String apellidos;
-    @Column( length = 50)
+    @NotBlank
+    @Email
+    @Column( length = 30, nullable = false)
     private String email;
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fechaCreacion;
+
+    @PrePersist
+    private void prePersist(){
+        fechaCreacion = new Date();
+    }
 
     public Integer getId() {
         return id;

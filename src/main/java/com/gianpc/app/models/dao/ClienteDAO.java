@@ -26,8 +26,9 @@ public class ClienteDAO implements ICliente{
     }
 
     @Override
+    @Transactional
     public void guardar(Cliente client) {
-
+        entityManager.persist(client);
     }
 
     @Override

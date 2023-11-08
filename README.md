@@ -43,5 +43,10 @@
    - Agregamos una class de Boostrap
    - Agregamos formulario.html
    - Resultados![img_1.png](src%2Fmain%2Fresources%2Fstatic%2Fimg_1.png)![img_2.png](src%2Fmain%2Fresources%2Fstatic%2Fimg_2.png)
-   
-   
+6. Mapear el Formulario
+   - Mapeamos los inputs del formulario **th:field** y en **ClienteController** le enviamos un objeto de tipo Cliente
+   - Implementamos el método guardar y le agregamos @Transactional
+   - @PrePersist; esta anotación nos sirve para agregar una fecha de manera automática
+   - Para evitar que se envíen campos vacíos agregamos **nullable = false** en Cliente y **@NotBlank**
+   - Seguidamente validamos en ClienteController
+   - Después de validar en ClienteController al querer pasar campos vacíos no nos debe permitir enviar y retorna a "cliente/formulario"

@@ -2,9 +2,12 @@ package com.gianpc.app.controllers;
 
 import com.gianpc.app.models.dao.ClienteDAO;
 import com.gianpc.app.models.dao.ICliente;
+import com.gianpc.app.models.entity.Cliente;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +29,17 @@ public class ClienteController {
     @GetMapping("/formulario")
     public String formulario(Model model){
         model.addAttribute("titulo","Formulario de Cliente");
+        model.addAttribute("cliente", new Cliente());
         return "cliente/formulario";
     }
 
     @PostMapping("/formulario")
-    public String guardar(){
-        return null;
+    public String guardar(@Valid Cliente cliente, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()){
+            model.addAttribute("titulo", "Formulario de Cliente");
+            return "cliente/formulario";
+        }
+        iCliente.guardar(cliente);
+        return "redirect:listar";
     }
 }
