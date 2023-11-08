@@ -54,7 +54,7 @@ public class ClienteController {
     @GetMapping("/eliminar/{id}")
     public String eliminar(@PathVariable Integer id, RedirectAttributes redirectAttributes){
         iCliente.eliminar(id);
-        redirectAttributes.addFlashAttribute("info", "¡Cliente guardado exitosamente!");
+        redirectAttributes.addFlashAttribute("warning", "¡Cliente eliminado exitosamente!");
         return "redirect:/cliente/listar";
     }
 

@@ -67,3 +67,4 @@
 11. Eliminar
     - Agregamos métodos para eliminar un cliente
 12. Mejoras 
+13. Conexión MySQL
