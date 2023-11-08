@@ -64,3 +64,5 @@
     - Implementamos el método guardar en ClienteDAO
     - @SessionAttributes: Mapea una sessión a nivel global donde se almacena el objeto Cliente
     - Luego cierro la session después de guardar
+11. Eliminar
+    - Agregamos métodos para eliminar un cliente

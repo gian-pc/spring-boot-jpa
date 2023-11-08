@@ -48,4 +48,10 @@ public class ClienteController {
         sessionStatus.setComplete();
         return "redirect:listar";
     }
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable Integer id){
+        iCliente.eliminar(id);
+        return "redirect:/cliente/listar";
+    }
+
 }

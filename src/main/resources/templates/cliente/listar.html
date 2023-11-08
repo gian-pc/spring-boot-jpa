@@ -34,7 +34,7 @@
                 <th>Apellidos</th>
                 <th>Email</th>
                 <th>Fecha de Creación</th>
-                <th>Editar</th>
+                <th class="text-center" colspan="2">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -45,6 +45,7 @@
                 <td th:text="${cliente.email}"></td>
                 <td th:text="${cliente.fechaCreacion}"></td>
                 <td><a class="btn btn-success" th:href="@{/cliente/formulario/} + ${cliente.id}">Editar</a></td>
+                <td><a class="btn btn-danger" th:href="@{/cliente/eliminar/} + ${cliente.id}">Eliminar</a></td>
             </tr>
         </tbody>
     </table>
