@@ -28,8 +28,12 @@ public class ClienteDAO implements ICliente{
 
     @Override
     @Transactional
-    public void guardar(Cliente client) {
-        entityManager.persist(client);
+    public void guardar(Cliente cliente) {
+        if(cliente.getId()==null){
+            entityManager.persist(cliente);
+        }else {
+            entityManager.merge(cliente);
+        }
     }
 
     @Override

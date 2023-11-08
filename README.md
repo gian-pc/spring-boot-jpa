@@ -60,3 +60,7 @@
 9. Optimizando el punto 8
    - Reduciremos de 2 a 1 sólo método
    - Aplicaremos una condición para cuando se tenga o no un **id**
+10. Guardar
+    - Implementamos el método guardar en ClienteDAO
+    - @SessionAttributes: Mapea una sessión a nivel global donde se almacena el objeto Cliente
+    - Luego cierro la session después de guardar
