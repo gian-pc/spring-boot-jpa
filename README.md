@@ -66,3 +66,4 @@
     - Luego cierro la session después de guardar
 11. Eliminar
     - Agregamos métodos para eliminar un cliente
+12. Mejoras 

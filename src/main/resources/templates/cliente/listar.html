@@ -1,30 +1,13 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>Spring Boot JPA</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
-</head>
+<head th:replace="layout/layout :: head"></head>
 <body>
-<!--Inicio Nav-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Spring Boot</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" th:href="@{/cliente/listar}">Cliente</a>
-                </li>
-            </ul>
-        </div>
+<div th:replace="layout/layout :: header"></div>
+<div class="container mt-2">
+    <div class="col-2">
+        <a class="btn btn-primary mb-2 w-100" th:href="@{/cliente/formulario}">Nuevo Cliente</a>
     </div>
-</nav>
-<!--Fin Nav-->
-<div class="container">
-    <a class="btn btn-primary mb-2" th:href="@{/cliente/formulario}">Nuevo Cliente</a>
+
     <h1 class="text-secondary border-bottom border-3 border-primary" th:text="${titulo}"></h1>
     <table class="table table-striped">
         <thead>
@@ -44,12 +27,12 @@
                 <td th:text="${cliente.apellidos}"></td>
                 <td th:text="${cliente.email}"></td>
                 <td th:text="${cliente.fechaCreacion}"></td>
-                <td><a class="btn btn-success" th:href="@{/cliente/formulario/} + ${cliente.id}">Editar</a></td>
-                <td><a class="btn btn-danger" th:href="@{/cliente/eliminar/} + ${cliente.id}">Eliminar</a></td>
+                <td><a class="btn btn-success w-100" th:href="@{/cliente/formulario/} + ${cliente.id}">Editar</a></td>
+                <td><a class="btn btn-danger w-100" th:href="@{/cliente/eliminar/} + ${cliente.id}">Eliminar</a></td>
             </tr>
         </tbody>
     </table>
 </div>
-<script type="text/javascript" th:src="@{/js/bootstrap.bundle.js}"></script>
+<div th:replace="layout/layout :: scripts"></div>
 </body>
 </html>
