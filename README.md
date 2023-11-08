@@ -57,3 +57,6 @@
 8. Editar un Cliente
    - Antes agregamos **bootstrap.bundle.js** de bootstrap para que se genere la animación del menú
    - Para editar un cliente, primero debemos obtener el cliente
+9. Optimizando el punto 8
+   - Reduciremos de 2 a 1 sólo método
+   - Aplicaremos una condición para cuando se tenga o no un **id**

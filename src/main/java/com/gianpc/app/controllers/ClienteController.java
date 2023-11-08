@@ -27,10 +27,15 @@ public class ClienteController {
         return "cliente/listar";
     }
 
-    @GetMapping("/formulario")
-    public String formulario(Model model){
-        model.addAttribute("titulo","Formulario de Cliente: Registrar");
-        model.addAttribute("cliente", new Cliente());
+    @GetMapping({"/formulario", "/formulario/{id}"})
+    public String formulario(@PathVariable(required = false) Integer id, Model model){
+        if(id==null){
+            model.addAttribute("titulo","Formulario de Cliente: Registrar");
+            model.addAttribute("cliente", new Cliente());
+        }else{
+            model.addAttribute("titulo", "Formulario de Cliente: Actualizar");
+            model.addAttribute("cliente", iCliente.obtenerUno(id));
+        }
         return "cliente/formulario";
     }
 
@@ -42,11 +47,5 @@ public class ClienteController {
         }
         iCliente.guardar(cliente);
         return "redirect:listar";
-    }
-    @GetMapping("/formulario/{id}")
-    public String obtenerUno(@PathVariable Integer id, Model model){
-        model.addAttribute("titulo", "Formulario de Cliente: Editar");
-        model.addAttribute("cliente", iCliente.obtenerUno(id));
-        return "cliente/formulario";
     }
 }
