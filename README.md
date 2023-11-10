@@ -79,3 +79,8 @@
     - Agregamos detalle.html
     - Agregamos un boton en listar para ver la imagen
     - Agregamos un valor por defecto a la imagen en **import.sql**
+16. Desacoplar la carpeta uploads
+    - Eliminamos la carpeta uploads
+    - En el escritorio creamos una carpeta uploads
+    - Eliminamos el path del ClienteController y agregamos la ruta de la carpeta uploads
+    - Creamos **MvcConfig** para desacoplar la carpeta uploads

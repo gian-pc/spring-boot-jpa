@@ -53,8 +53,7 @@ public class ClienteController {
             return "cliente/formulario";
         }
         if(!file.isEmpty()){
-            Path carpeta = Paths.get("src//main//resources//static//uploads");
-            String raiz = carpeta.toFile().getAbsolutePath();
+            String raiz = "C://Users//Gian//Desktop//uploads";
             Path rutaFinal = Paths.get(raiz + "//" + file.getOriginalFilename());
             try {
                 Files.write(rutaFinal, file.getBytes());
