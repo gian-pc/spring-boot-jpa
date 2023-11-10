@@ -84,3 +84,7 @@
     - En el escritorio creamos una carpeta uploads
     - Eliminamos el path del ClienteController y agregamos la ruta de la carpeta uploads
     - Creamos **MvcConfig** para desacoplar la carpeta uploads
+17. Otra Forma de desacople de uploads
+    - Generamos la carpeta uploads a nivel del proyecto
+    - Modificamos ClienteController
+    - Modificamos MvcConfig

@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("cliente")
@@ -53,11 +54,12 @@ public class ClienteController {
             return "cliente/formulario";
         }
         if(!file.isEmpty()){
-            String raiz = "C://Users//Gian//Desktop//uploads";
-            Path rutaFinal = Paths.get(raiz + "//" + file.getOriginalFilename());
+            String nombreUnico = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+            Path carpeta = Paths.get("uploads").resolve(nombreUnico);
+            Path raiz = carpeta.toAbsolutePath();
             try {
-                Files.write(rutaFinal, file.getBytes());
-                cliente.setFoto(file.getOriginalFilename());
+                Files.copy(file.getInputStream(), raiz);
+                cliente.setFoto(nombreUnico);
                 redirectAttributes.addFlashAttribute("info", "¡Se ha subido una imagen!");
             } catch (IOException e) {
                 e.printStackTrace();
