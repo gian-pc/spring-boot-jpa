@@ -9,7 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 @RequestMapping("cliente")
@@ -40,22 +46,34 @@ public class ClienteController {
     }
 
     @PostMapping("/formulario")
-    public String guardar(@Valid Cliente cliente, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes, SessionStatus sessionStatus){
+    public String guardar(@Valid Cliente cliente, BindingResult bindingResult, Model model, @RequestParam MultipartFile file, RedirectAttributes redirectAttributes, SessionStatus sessionStatus){
         if(bindingResult.hasErrors()){
             model.addAttribute("error", "¡Debes completar todos los datos obligatorios!");
             model.addAttribute("titulo", "Formulario de Cliente: Registrar");
             return "cliente/formulario";
         }
+        if(!file.isEmpty()){
+            Path carpeta = Paths.get("src//main//resources//static//uploads");
+            String raiz = carpeta.toFile().getAbsolutePath();
+            Path rutaFinal = Paths.get(raiz + "//" + file.getOriginalFilename());
+            try {
+                Files.write(rutaFinal, file.getBytes());
+                cliente.setFoto(file.getOriginalFilename());
+                redirectAttributes.addFlashAttribute("info", "¡Se ha subido una imagen!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         iCliente.guardar(cliente);
         sessionStatus.setComplete();
-        redirectAttributes.addFlashAttribute("info", "¡Cliente guardado exitosamente!");
+        redirectAttributes.addFlashAttribute("success", "¡Cliente guardado exitosamente!");
         return "redirect:listar";
     }
+
     @GetMapping("/eliminar/{id}")
     public String eliminar(@PathVariable Integer id, RedirectAttributes redirectAttributes){
         iCliente.eliminar(id);
         redirectAttributes.addFlashAttribute("warning", "¡Cliente eliminado exitosamente!");
         return "redirect:/cliente/listar";
     }
-
 }

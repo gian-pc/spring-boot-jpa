@@ -24,6 +24,7 @@ public class Cliente {
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fechaCreacion;
+    private String foto;
 
     @PrePersist
     private void prePersist(){
@@ -68,5 +69,13 @@ public class Cliente {
 
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

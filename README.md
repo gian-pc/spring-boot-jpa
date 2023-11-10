@@ -68,3 +68,9 @@
     - Agregamos métodos para eliminar un cliente
 12. Mejoras 
 13. Conexión MySQL
+14. Imágenes
+    - Habilitamos el formulario.html con un atributo para que acepte datos de tipos archivos(imágenes) **enctype="multipart/form-data"**
+    - Habilitamos un control(input) para poder subir los archivos
+    - Configuramos el Controlador y le agregamos el atributo **@RequestParam MultipartFile file**
+    - Agregamos un nuevo atributo a Cliente **foto**
+    - Adicionamos **foto** en **import.sql**
