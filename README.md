@@ -88,3 +88,4 @@
     - Generamos la carpeta uploads a nivel del proyecto
     - Modificamos ClienteController
     - Modificamos MvcConfig
+18. Eliminar la imagen de uploads

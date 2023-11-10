@@ -12,6 +12,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -73,8 +74,18 @@ public class ClienteController {
 
     @GetMapping("/eliminar/{id}")
     public String eliminar(@PathVariable Integer id, RedirectAttributes redirectAttributes){
+
+        Cliente cliente = iCliente.obtenerUno(id);
+        Path raiz = Paths.get("uploads").resolve(cliente.getFoto()).toAbsolutePath();
+        File foto = raiz.toFile();
+
+        if(foto.exists() && foto.canRead()){
+            foto.delete();
+        }
+
         iCliente.eliminar(id);
         redirectAttributes.addFlashAttribute("warning", "¡Cliente eliminado exitosamente!");
+
         return "redirect:/cliente/listar";
     }
 
