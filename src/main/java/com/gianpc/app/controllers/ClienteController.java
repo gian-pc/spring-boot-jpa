@@ -76,4 +76,11 @@ public class ClienteController {
         redirectAttributes.addFlashAttribute("warning", "¡Cliente eliminado exitosamente!");
         return "redirect:/cliente/listar";
     }
+
+    @GetMapping("/detalle/{id}")
+    public String detalle(@PathVariable Integer id, Model model, RedirectAttributes redirectAttributes) {
+        model.addAttribute("titulo","Detalle del Cliente");
+        model.addAttribute("cliente", iCliente.obtenerUno(id));
+        return "cliente/detalle";
+    }
 }

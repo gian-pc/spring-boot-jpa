@@ -74,3 +74,8 @@
     - Configuramos el Controlador y le agregamos el atributo **@RequestParam MultipartFile file**
     - Agregamos un nuevo atributo a Cliente **foto**
     - Adicionamos **foto** en **import.sql**
+15. Mostrar imágenes
+    - Agregamos un método en el controller
+    - Agregamos detalle.html
+    - Agregamos un boton en listar para ver la imagen
+    - Agregamos un valor por defecto a la imagen en **import.sql**
